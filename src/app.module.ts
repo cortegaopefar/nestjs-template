@@ -11,11 +11,11 @@ import { Note } from './note/note.entity';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'mssql',
-      host: 'localhost',
-      port: 1433,
-      username: 'sa',
-      password: '101010',
-      database: 'tools',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT ?? '1433'),
+      username: process.env.DB_USER,
+      password: process.env.DB_PASS,
+      database: process.env.DB_DATA,
       options: {
         encrypt: false,
       },
